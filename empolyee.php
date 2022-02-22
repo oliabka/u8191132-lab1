@@ -28,14 +28,14 @@ class Employee{
     public static function loadValidatorMetadata(ClassMetadata $metadata)
     {
         $metadata->addPropertyConstraints("id", [
-            new Assert\Length(['min' => 1,
+            new Assert\Length([
                 'max' => 16]),
             new Assert\NotBlank(),
         ]);
         $metadata->addPropertyConstraints("name", [
             new Assert\NotBlank(),
             new Assert\Regex([
-                'pattern' => '/^([А-ЯЁ]{1}[а-яё]{29})|([A-Z]{1}[a-z]{29})$/u'
+                'pattern' => '/^([А-ЯЁ]{1}[а-яё]{1,29})|([A-Z]{1}[a-z]{1,29})$/u'
             ])
             ]);
         $metadata->addPropertyConstraints("salary", [
@@ -43,7 +43,7 @@ class Employee{
             new Assert\NotBlank()
         ]);
         $metadata->addPropertyConstraints("hire_date", [
-            new Assert\DateTime(),
+            //new Assert\DateTime(),
             new Assert\NotBlank()
         ]);
     }
