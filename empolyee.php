@@ -43,7 +43,6 @@ class Employee{
             new Assert\NotBlank()
         ]);
         $metadata->addPropertyConstraints("hire_date", [
-            //new Assert\DateTime(),
             new Assert\NotBlank()
         ]);
     }
